@@ -47,13 +47,16 @@ public class StringInputProcessor extends InputProcessor {
   public List<PlayerRolls> getPlayerRolls() {
 
     final Map<String, List<String>> nameAndRolls = new HashMap<>();
+
     try (Scanner scanner = new Scanner(INPUT_STRING)) {
       while (scanner.hasNextLine()) {
         String line = scanner.nextLine();
         processLine(line, nameAndRolls);
       }
     }
+
     validateRollCounts(nameAndRolls);
+
     return createPlayerRollsList(nameAndRolls);
   }
 }

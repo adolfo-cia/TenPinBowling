@@ -2,6 +2,7 @@ package com.jobsity.challenge.frames;
 
 import com.jobsity.challenge.game.Roll;
 import java.util.List;
+import java.util.Optional;
 
 public abstract class FrameFactory {
 
@@ -35,7 +36,8 @@ public abstract class FrameFactory {
     int currentScore = lastFrameScore + getLastFrameScore(rolls, rollNumber);
 
     return new TenthFrame(
-        rolls.get(rollNumber), rolls.get(rollNumber + 1), rolls.get(rollNumber + 2), currentScore);
+        rolls.get(rollNumber), rolls.get(rollNumber + 1), getLastFrameLastRoll(rolls, rollNumber),
+        currentScore);
   }
 
   private static int getStrikeScore(final List<Roll> rolls, final int rollNumber) {
@@ -62,8 +64,17 @@ public abstract class FrameFactory {
 
     int currentRoll = rolls.get(rollNumber).getIntValue();
     int nextRoll = rolls.get(rollNumber + 1).getIntValue();
-    int nextNextRoll = rolls.get(rollNumber + 2).getIntValue();
+    int nextNextRoll = getLastFrameLastRollValue(rolls, rollNumber);
 
     return currentRoll + nextRoll + nextNextRoll;
+  }
+
+  private static int getLastFrameLastRollValue(final List<Roll> rolls, final int rollNumber) {
+    return rolls.size() - 1 != rollNumber + 2 ? 0 : rolls.get(rollNumber + 2).getIntValue();
+  }
+
+  private static Optional<Roll> getLastFrameLastRoll(final List<Roll> rolls, final int rollNumber) {
+    return rolls.size() - 1 != rollNumber + 2 ? Optional.empty()
+        : Optional.of(rolls.get(rollNumber + 2));
   }
 }
