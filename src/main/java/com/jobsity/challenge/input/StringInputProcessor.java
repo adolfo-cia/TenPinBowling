@@ -44,6 +44,7 @@ public class StringInputProcessor extends InputProcessor {
           + "John 9\n"
           + "John 0";
 
+  @Override
   public List<PlayerRolls> getPlayerRolls() {
 
     final Map<String, List<String>> nameAndRolls = new HashMap<>();

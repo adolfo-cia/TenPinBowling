@@ -13,10 +13,12 @@ public class SpareFrame implements Frame {
     this.score = score;
   }
 
+  @Override
   public String getPinFallsRepresentation() {
     return firstRoll + "\t" + SPARE + "\t";
   }
 
+  @Override
   public int getScore() {
     return score;
   }

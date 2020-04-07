@@ -14,7 +14,7 @@ import org.junit.jupiter.api.Test;
  */
 public class AppTest {
 
-  private static final String TEST_RESOURCES_PATH = "src/test/resources/";
+  public static final String TEST_RESOURCES_PATH = "src/test/resources/";
 
   private Printer printer;
   private InputProcessor stringInputProcessor;

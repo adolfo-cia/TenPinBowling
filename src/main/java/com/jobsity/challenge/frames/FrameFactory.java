@@ -6,6 +6,14 @@ import java.util.Optional;
 
 public abstract class FrameFactory {
 
+  /**
+   * Factory method for creating a StrikeFrame.
+   *
+   * @param rolls          list of player rolls
+   * @param rollNumber     current roll number
+   * @param lastFrameScore the score from the last frame
+   * @return
+   */
   public static Frame newStrikeFrame(
       final List<Roll> rolls, final int rollNumber, final int lastFrameScore) {
 
@@ -14,6 +22,14 @@ public abstract class FrameFactory {
     return new StrikeFrame(currentScore);
   }
 
+  /**
+   * Factory method for creating a SpareFrame.
+   *
+   * @param rolls          list of player rolls
+   * @param rollNumber     current roll number
+   * @param lastFrameScore the score from the last frame
+   * @return
+   */
   public static Frame newSpareFrame(
       final List<Roll> rolls, final int rollNumber, final int lastFrameScore) {
 
@@ -22,6 +38,14 @@ public abstract class FrameFactory {
     return new SpareFrame(rolls.get(rollNumber), currentScore);
   }
 
+  /**
+   * Factory method for creating a CommonFrame.
+   *
+   * @param rolls          list of player rolls
+   * @param rollNumber     current roll number
+   * @param lastFrameScore the score from the last frame
+   * @return
+   */
   public static Frame newCommonFrame(
       final List<Roll> rolls, final int rollNumber, final int lastFrameScore) {
 
@@ -30,6 +54,14 @@ public abstract class FrameFactory {
     return new CommonFrame(rolls.get(rollNumber), rolls.get(rollNumber + 1), currentScore);
   }
 
+  /**
+   * Factory method for creating a TenthFrame.
+   *
+   * @param rolls          list of player rolls
+   * @param rollNumber     current roll number
+   * @param lastFrameScore the score from the last frame
+   * @return
+   */
   public static Frame newTenthFrame(
       final List<Roll> rolls, final int rollNumber, final int lastFrameScore) {
 

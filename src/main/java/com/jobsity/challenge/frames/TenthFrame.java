@@ -18,6 +18,14 @@ public class TenthFrame implements Frame {
   private final String thirdRoll;
   private final int score;
 
+  /**
+   * Constructor of TenthFrame.
+   *
+   * @param firstRoll  the first roll of the frame
+   * @param secondRoll the second roll of the frame
+   * @param thirdRoll  the third roll of the frame, if any
+   * @param score      the score of the frame
+   */
   public TenthFrame(
       final Roll firstRoll, final Roll secondRoll, final Optional<Roll> thirdRoll,
       final int score) {
@@ -27,6 +35,7 @@ public class TenthFrame implements Frame {
     this.score = score;
   }
 
+  @Override
   public String getPinFallsRepresentation() {
     String first = getFirstRollRepresentation();
     String second = getSecondRollRepresentation();
@@ -35,6 +44,7 @@ public class TenthFrame implements Frame {
     return first + "\t" + second + "\t" + third;
   }
 
+  @Override
   public int getScore() {
     return score;
   }

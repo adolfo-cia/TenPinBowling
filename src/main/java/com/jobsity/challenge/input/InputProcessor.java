@@ -9,6 +9,9 @@ import java.util.Map;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.math.NumberUtils;
 
+/**
+ * Processor class that handles the parsing of the input source.
+ */
 public abstract class InputProcessor {
 
   private static final String DELIMITER = " ";
@@ -18,6 +21,11 @@ public abstract class InputProcessor {
   private static final int MAX_ROLL_COUNT = 21;
   public static final String FOUL = "F";
 
+  /**
+   * Main method of the processor. Will return the parsed input into a list of {@link PlayerRolls}
+   *
+   * @return playerRolls list
+   */
   public abstract List<PlayerRolls> getPlayerRolls();
 
   protected void processLine(final String line, final Map<String, List<String>> nameAndRolls) {

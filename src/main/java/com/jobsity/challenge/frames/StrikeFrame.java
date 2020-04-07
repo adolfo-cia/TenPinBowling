@@ -9,10 +9,12 @@ public class StrikeFrame implements Frame {
     this.score = score;
   }
 
+  @Override
   public String getPinFallsRepresentation() {
     return "\t" + STRIKE + "\t";
   }
 
+  @Override
   public int getScore() {
     return score;
   }

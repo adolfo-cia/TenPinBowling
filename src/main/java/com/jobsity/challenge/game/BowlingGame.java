@@ -20,6 +20,11 @@ public class BowlingGame {
     this.printer = printer;
   }
 
+  /**
+   * The core method of the application. It'll feed from the {@link InputProcessor} parsing process,
+   * then will loop through eah frame, calculates the score and the frame type, and when finished
+   * it'll pass the result to the {@link Printer} to pretty print the result.
+   */
   public void start() {
     final List<PlayerRolls> playerRolls = inputProcessor.getPlayerRolls();
     final List<Player> players = new ArrayList<>();
